@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script>
+			// Track hnews data per tab
+			hNewsData = {};
+
+			// Listen for messgaes telling us to show the news icon
+			chrome.extension.onRequest.addListener(function (request, sender) {
+				// Sanity check the data we have... if it's good, show the
+				// default icon, otherwise show an error icon...
+				if (false) {
+					chrome.pageAction.setIcon({
+						tabId: sender.tab.id,
+						path: "news_icon-error.png"
+					});
+				}
+				chrome.pageAction.show(sender.tab.id);
+
+				// Save the data so the popup can display it
+				hNewsData[sender.tab.id] = request;
+			});
+
+			chrome.tabs.onRemoved.addListener(function (tabId) {
+				delete hNewsData[tabId];
+			});
+		</script>
+	</head>
+
+	<body>
+	</body>
+</html>

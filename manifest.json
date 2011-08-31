@@ -1,0 +1,24 @@
+{
+	"name": "hNews Parser",
+	"version": "0.1",
+	"description": "Reads and validates the hNews microformat.",
+	"permissions": [ "tabs", "http://*/*", "https://*/*", "file://*/*" ],
+	"background_page": "background.html",
+	"page_action": {
+		"default_icon": "news_icon.png",
+		"popup": "popup.html"
+	},
+	"icons": {
+		"128": "news_icon.png"
+	},
+	"content_scripts": [ {
+		"js": [
+			"Microformat-Shiv/shiv/microformats-shiv.min.js",
+			"Microformat-Shiv/shiv/microformats-coredefinition.min.js",
+			"Microformat-Shiv/shiv/microformats-hatomdefinition.min.js",
+			"content.js"
+		],
+		"matches": [ "http://*/*", "https://*/*", "file://*/*" ]
+	} ],
+	"update_url": "http://www.lectroid.net/chrome/updates.xml"
+}

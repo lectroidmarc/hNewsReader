@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Hiya</title>
+		<meta charset="utf-8" />
+
+		<!--<link rel="stylesheet" href="styles.css" />-->
+		<style>
+			body {
+				width: 600px;
+				font-family: Helvetica, Arial;
+				font-size: 10pt;
+			}
+
+			.header {
+				font-size: 24pt;
+				margin-bottom: 10px;
+			}
+
+			.section {
+				margin-bottom: 15px;
+			}
+
+			.section .title {
+				font-weight: bold;
+				margin-bottom: 4px;
+			}
+
+			.box {
+				border: 1px solid #aaa;
+				border-radius: 5px;
+				box-shadow: 3px 3px 3px #ccc;
+				line-height: 150%;
+				margin-left: 20px;
+				padding: 4px;
+			}
+
+			.fieldName {
+				font-weight: bold;
+			}
+		</style>
+
+		<script src="Microformat-Shiv/shiv/microformats-isodate.min.js"></script>
+
+		<script>
+			function main() {
+				chrome.tabs.getSelected(null, function(tab) {
+					var microformatData = chrome.extension.getBackgroundPage().hNewsData[tab.id];
+
+					var hentries = microformatData.hEntry.microformats.hentry;
+					if (hentries.length > 0) {
+						var updatedDate = dateFromISO8601(hentries[0].updated);
+
+						document.getElementById('title').innerHTML = hentries[0]['entry-title'];
+						document.getElementById('author').innerHTML = hentries[0].author[0].fn;
+						document.getElementById('updated').innerHTML = updatedDate;
+					}
+
+					var vcards = microformatData.hCard.microformats.vcard;
+					if (vcards.length > 0) {
+						var source = document.getElementById('source');
+						source.innerHTML = vcards[0].fn;
+					}
+
+					var license = microformatData.itemLicense;
+					if (license.link) {
+						document.getElementById('license').innerHTML = license.link;
+					}
+
+					var beacon = microformatData.beacon;
+					if (beacon.link) {
+						document.getElementById('beacon').innerHTML = beacon.link;
+					}
+				});
+			}
+		</script>
+	</head>
+
+	<body onload="javascript:main()">
+		<div class="header">
+			<img src="mf_logo.gif"/>
+			hNews Parser
+		</div>
+
+		<div class="section">
+			<div class="title">hNews Required fields:</div>
+			<div class="required box">
+				<div><span class="fieldName">Headline:</span> <span id="title" class="fieldValue"></span></div>
+				<div><span class="fieldName">Byline:</span> <span id="author" class="fieldValue"></span></div>
+				<div><span class="fieldName">Source:</span> <span id="source" class="fieldValue"></span></div>
+				<div><span class="fieldName">Updated:</span> <span id="updated" class="fieldValue"></span></div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="title">hNews Optional fields:</div>
+			<div class="optional box">
+				<div><span class="fieldName">Dateline:</span> <span id="dateline" class="fieldValue"></span></div>
+				<div><span class="fieldName">Geo:</span> <span id="geo" class="fieldValue"></span></div>
+				<div><span class="fieldName">Principles:</span> <span id="principles" class="fieldValue"></span></div>
+				<div><span class="fieldName">Published:</span> <span id="published" class="fieldValue"></span></div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="title">AP News Registry Required fields:</div>
+			<div class="APNR box">
+				<div><span class="fieldName">License:</span> <span id="license" class="fieldValue"></span></div>
+				<div><span class="fieldName">Usage Tag (beacon):</span> <span id="beacon" class="fieldValue"></span></div>
+			</div>
+		</div>
+	</body>
+</html>
