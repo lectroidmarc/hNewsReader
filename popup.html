@@ -66,8 +66,7 @@
 
 					var vcards = microformatData.hCard.microformats.vcard;
 					if (vcards.length > 0) {
-						var source = document.getElementById('source');
-						source.innerHTML = vcards[0].fn;
+						document.getElementById('source').innerHTML = vcards[0].fn;
 					}
 
 					var geo = microformatData.geo.microformats.geo;
