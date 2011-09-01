@@ -1,5 +1,5 @@
 {
-	"name": "hNews Parser",
+	"name": "hNews Reader",
 	"version": "0.1",
 	"description": "Reads and validates the hNews microformat.",
 	"permissions": [ "tabs", "http://*/*", "https://*/*", "file://*/*" ],
