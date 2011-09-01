@@ -49,11 +49,19 @@
 
 					var hentries = microformatData.hEntry.microformats.hentry;
 					if (hentries.length > 0) {
-						var updatedDate = dateFromISO8601(hentries[0].updated);
-
 						document.getElementById('title').innerHTML = hentries[0]['entry-title'];
 						document.getElementById('author').innerHTML = hentries[0].author[0].fn;
-						document.getElementById('updated').innerHTML = updatedDate;
+
+						// dateFromISO8601() is finicky so make sure we
+						// really have dates
+						if (hentries[0].updated) {
+							var updatedDate = dateFromISO8601(hentries[0].updated);
+							document.getElementById('updated').innerHTML = updatedDate;
+						}
+						if (hentries[0].published) {
+							var publishedDate = dateFromISO8601(hentries[0].published);
+							document.getElementById('published').innerHTML = publishedDate;
+						}
 					}
 
 					var vcards = microformatData.hCard.microformats.vcard;
