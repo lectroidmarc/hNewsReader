@@ -70,6 +70,11 @@
 						source.innerHTML = vcards[0].fn;
 					}
 
+					var geo = microformatData.geo.microformats.geo;
+					if (geo.length > 0) {
+						document.getElementById('geo').innerHTML = geo[0].latitude + ", " + geo[0].longitude;
+					}
+
 					var license = microformatData.itemLicense;
 					if (license.link) {
 						document.getElementById('license').innerHTML = license.link;

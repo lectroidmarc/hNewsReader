@@ -25,6 +25,18 @@ function CheckForHNews () {
 			console.log(source_orgData);
 		}
 
+		// hNews geo
+		var geoData = {};
+		var geoContainer = hNewsContainer[0].getElementsByClassName('geo');
+		if (geoContainer.length > 0) {
+			// Fool microformat-shiv into taking a node that's a microformat
+			var tempDiv = document.createElement('div');
+			tempDiv.appendChild(geoContainer[0].cloneNode(true));
+
+			geoData = navigator.microformats.get('geo', tempDiv);
+			console.log(geoData);
+		}
+
 		// AP/hNews item-license
 		var licenseData = {};
 		var licenseXpath = document.evaluate("//a[@rel='item-license']", hNewsContainer[0], null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -47,7 +59,7 @@ function CheckForHNews () {
 		}
 
 		// Send the data along...
-		chrome.extension.sendRequest({hEntry: hEntryData, hCard: source_orgData, itemLicense: licenseData, beacon: beaconData});
+		chrome.extension.sendRequest({hEntry: hEntryData, hCard: source_orgData, geo: geoData, itemLicense: licenseData, beacon: beaconData});
 	}
 }
 
