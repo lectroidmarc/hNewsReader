@@ -64,14 +64,18 @@
 						}
 					}
 
-					var vcards = microformatData.hCard.microformats.vcard;
-					if (vcards.length > 0) {
-						document.getElementById('source').innerHTML = vcards[0].fn;
+					if (microformatData.hCard.microformats) {
+						var vcards = microformatData.hCard.microformats.vcard;
+						if (vcards.length > 0) {
+							document.getElementById('source').innerHTML = vcards[0].fn;
+						}
 					}
 
-					var geo = microformatData.geo.microformats.geo;
-					if (geo.length > 0) {
-						document.getElementById('geo').innerHTML = geo[0].latitude + ", " + geo[0].longitude;
+					if (microformatData.geo.microformats) {
+						var geo = microformatData.geo.microformats.geo;
+						if (geo.length > 0) {
+							document.getElementById('geo').innerHTML = geo[0].latitude + ", " + geo[0].longitude;
+						}
 					}
 
 					var license = microformatData.itemLicense;
