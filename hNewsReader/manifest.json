@@ -13,9 +13,9 @@
 	},
 	"content_scripts": [ {
 		"js": [
-			"Microformat-Shiv/shiv/microformats-shiv.min.js",
-			"Microformat-Shiv/shiv/microformats-coredefinition.min.js",
-			"Microformat-Shiv/shiv/microformats-hatomdefinition.min.js",
+			"shiv/microformats-shiv.min.js",
+			"shiv/microformats-coredefinition.min.js",
+			"shiv/microformats-hatomdefinition.min.js",
 			"content.js"
 		],
 		"matches": [ "http://*/*", "https://*/*", "file://*/*" ]
