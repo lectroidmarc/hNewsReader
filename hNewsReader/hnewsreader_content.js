@@ -4,7 +4,7 @@
  * does.
  */
 function CheckForHNews () {
-	var hNewsContainer = document.getElementsByClassName('hnews');
+	var hNewsContainer = document.getElementsByClassName('hnews hentry');
 	if (hNewsContainer.length > 0) {
 		// Ok, we have an hNews container... do something...
 		// FIXME if there's more than one?  Can there be?
