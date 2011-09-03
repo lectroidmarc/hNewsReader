@@ -7,13 +7,13 @@
 		<!--<link rel="stylesheet" href="styles.css" />-->
 		<style>
 			body {
-				width: 600px;
+				width: 500px;
 				font-family: Helvetica, Arial;
 				font-size: 10pt;
 			}
 
 			.header {
-				font-size: 24pt;
+				font-size: 20pt;
 				margin-bottom: 10px;
 			}
 
@@ -22,17 +22,18 @@
 			}
 
 			.section .title {
-				font-weight: bold;
+				font-size: 11pt;
 				margin-bottom: 4px;
 			}
 
 			.box {
-				border: 1px solid #aaa;
+				background: #fafafa;
+				border: 1px solid #ccc;
 				border-radius: 5px;
 				box-shadow: 3px 3px 3px #ccc;
 				line-height: 150%;
-				margin-left: 20px;
-				padding: 4px;
+				margin: 0 20px;
+				padding: 5px;
 			}
 
 			.fieldName {
@@ -66,12 +67,12 @@
 
 	<body onload="javascript:main()">
 		<div class="header">
-			<img src="mf_logo.gif"/>
+			<img src="mf_logo.gif" alt=""/>
 			hNews Reader
 		</div>
 
 		<div class="section">
-			<div class="title">hNews Required fields:</div>
+			<div class="title">hNews required fields:</div>
 			<div class="required box">
 				<div><span class="fieldName">Headline:</span> <span id="title" class="fieldValue"></span></div>
 				<div><span class="fieldName">Byline:</span> <span id="author" class="fieldValue"></span></div>
@@ -81,7 +82,7 @@
 		</div>
 
 		<div class="section">
-			<div class="title">hNews Optional fields:</div>
+			<div class="title">hNews optional fields:</div>
 			<div class="optional box">
 				<div><span class="fieldName">Dateline:</span> <span id="dateline" class="fieldValue"></span></div>
 				<div><span class="fieldName">Geo:</span> <span id="geo" class="fieldValue"></span></div>
@@ -91,7 +92,7 @@
 		</div>
 
 		<div class="section">
-			<div class="title">AP News Registry Required fields:</div>
+			<div class="title">AP News Registry required fields:</div>
 			<div class="APNR box">
 				<div><span class="fieldName">License:</span> <span id="license" class="fieldValue"></span></div>
 				<div><span class="fieldName">Usage Tag (beacon):</span> <span id="beacon" class="fieldValue"></span></div>
