@@ -9,7 +9,7 @@
 			chrome.extension.onRequest.addListener(function (request, sender) {
 				// Sanity check the data we have... if it's good, show the
 				// default icon, otherwise show an error icon...
-				if (false) {
+				if (!request.hNews.isValid) {
 					chrome.pageAction.setIcon({
 						tabId: sender.tab.id,
 						path: "news_icon-error.png"
