@@ -7,12 +7,16 @@
 
 			// Listen for messgaes telling us to show the news icon
 			chrome.extension.onRequest.addListener(function (request, sender) {
-				// Sanity check the data we have... if it's good, show the
-				// default icon, otherwise show an error icon...
+				// What icon should we show...
 				if (!request.hNews.isValid) {
 					chrome.pageAction.setIcon({
 						tabId: sender.tab.id,
 						path: "news_icon-error.png"
+					});
+				} else if (request.hNews.isValid && request.hNews.license && request.beacon.link) {
+					chrome.pageAction.setIcon({
+						tabId: sender.tab.id,
+						path: "news_icon-ap.png"
 					});
 				}
 				chrome.pageAction.show(sender.tab.id);

@@ -1,6 +1,6 @@
 {
 	"name": "hNews Reader",
-	"version": "0.5.1",
+	"version": "0.6",
 	"description": "Reads and validates the hNews microformat.",
 	"permissions": [ "tabs", "http://*/*", "https://*/*", "file://*/*" ],
 	"background_page": "background.html",
