@@ -82,12 +82,6 @@ var hNews = function (hNewsElem) {
 	this.isValid = (this.title && this.author && this.updated && this.source) ? true : false;
 };
 
-if(typeof(String.prototype.trim) === "undefined") {
-	String.prototype.trim = function() {
-		return String(this).replace(/^\s+|\s+$/g, '');
-	};
-}
-
 /**
  * Checks to see if an hnews container exists, sends a message to Chrome if it
  * does.
