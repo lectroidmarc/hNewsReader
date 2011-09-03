@@ -47,46 +47,18 @@
 				chrome.tabs.getSelected(null, function(tab) {
 					var microformatData = chrome.extension.getBackgroundPage().hNewsData[tab.id];
 
-					var hentries = microformatData.hEntry.microformats.hentry;
-					if (hentries.length > 0) {
-						document.getElementById('title').innerHTML = hentries[0]['entry-title'];
-						document.getElementById('author').innerHTML = hentries[0].author[0].fn;
+					document.getElementById('title').innerHTML = (microformatData.hNews.title) ? microformatData.hNews.title : '';
+					document.getElementById('author').innerHTML = (microformatData.hNews.author) ? microformatData.hNews.author : '';
+					document.getElementById('source').innerHTML = (microformatData.hNews.source) ? microformatData.hNews.source : '';
+					document.getElementById('updated').innerHTML = (microformatData.hNews.updated) ? new Date(microformatData.hNews.updated) : '';
 
-						// dateFromISO8601() is finicky so make sure we
-						// really have dates
-						if (hentries[0].updated) {
-							var updatedDate = dateFromISO8601(hentries[0].updated);
-							document.getElementById('updated').innerHTML = updatedDate;
-						}
-						if (hentries[0].published) {
-							var publishedDate = dateFromISO8601(hentries[0].published);
-							document.getElementById('published').innerHTML = publishedDate;
-						}
-					}
+					document.getElementById('dateline').innerHTML = (microformatData.hNews.dateline) ? microformatData.hNews.dateline : '';
+					document.getElementById('geo').innerHTML = (microformatData.hNews.geo) ? microformatData.hNews.geo.latitude + ", " + microformatData.hNews.geo.longitude : '';
+					document.getElementById('principles').innerHTML = (microformatData.hNews.principle) ? microformatData.hNews.principle.link : '';
+					document.getElementById('published').innerHTML = (microformatData.hNews.published) ? new Date(microformatData.hNews.published) : '';
 
-					if (microformatData.hCard.microformats) {
-						var vcards = microformatData.hCard.microformats.vcard;
-						if (vcards.length > 0) {
-							document.getElementById('source').innerHTML = vcards[0].fn;
-						}
-					}
-
-					if (microformatData.geo.microformats) {
-						var geo = microformatData.geo.microformats.geo;
-						if (geo.length > 0) {
-							document.getElementById('geo').innerHTML = geo[0].latitude + ", " + geo[0].longitude;
-						}
-					}
-
-					var license = microformatData.itemLicense;
-					if (license.link) {
-						document.getElementById('license').innerHTML = license.link;
-					}
-
-					var beacon = microformatData.beacon;
-					if (beacon.link) {
-						document.getElementById('beacon').innerHTML = beacon.link;
-					}
+					document.getElementById('license').innerHTML = (microformatData.hNews.license) ? microformatData.hNews.license.link : '';
+					document.getElementById('beacon').innerHTML = (microformatData.beacon.link) ? microformatData.beacon.link : '';
 				});
 			}
 		</script>

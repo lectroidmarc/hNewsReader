@@ -1,6 +1,6 @@
 {
 	"name": "hNews Reader",
-	"version": "0.3.2",
+	"version": "0.4",
 	"description": "Reads and validates the hNews microformat.",
 	"permissions": [ "tabs", "http://*/*", "https://*/*", "file://*/*" ],
 	"background_page": "background.html",
@@ -13,9 +13,6 @@
 	},
 	"content_scripts": [ {
 		"js": [
-			"shiv/microformats-shiv.min.js",
-			"shiv/microformats-coredefinition.min.js",
-			"shiv/microformats-hatomdefinition.min.js",
 			"hnewsreader_content.js"
 		],
 		"matches": [ "http://*/*", "https://*/*", "file://*/*" ]
