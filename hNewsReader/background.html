@@ -13,7 +13,7 @@
 						tabId: sender.tab.id,
 						path: "news_icon-error.png"
 					});
-				} else if (request.hNews.isValid && request.hNews.license && request.apBeacon.isValid) {
+				} else if (request.hNews.isValid && request.hNews.license && request.apBeacon && request.apBeacon.isValid) {
 					chrome.pageAction.setIcon({
 						tabId: sender.tab.id,
 						path: "news_icon-ap.png"

@@ -145,7 +145,7 @@ function CheckForHNews () {
 		console.log(hnews);
 
 		// AP's News Registry beacon
-		var beacon = {}
+		var beacon = null;
 		var beaconSnapshots = document.evaluate("//img[contains(@src, 'http://analytics.apnewsregistry.com/analytics/v2/image.svc')]", document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
 		if (beaconSnapshots.snapshotLength > 0) {
 			beacon = new apBeacon(beaconSnapshots.snapshotItem(0).getAttribute('src'));

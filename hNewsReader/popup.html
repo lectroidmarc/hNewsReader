@@ -39,6 +39,22 @@
 			.fieldName {
 				font-weight: bold;
 			}
+
+			#beaconData {
+				background: white;
+				border: 1px solid #eee;
+				border-radius: 5px;
+				display: none;
+				font-size: 9pt;
+				line-height: 130%;
+				margin: 5px 20px 5px 10px;
+				padding: 5px;
+			}
+
+			#beaconData .fieldValue {
+				position: absolute;
+				left: 200px;
+			}
 		</style>
 
 		<script src="shiv/microformats-isodate.min.js"></script>
@@ -59,7 +75,21 @@
 					document.getElementById('published').innerHTML = (microformatData.hNews.published) ? new Date(microformatData.hNews.published) : '';
 
 					document.getElementById('license').innerHTML = (microformatData.hNews.license) ? microformatData.hNews.license.link : '';
-					document.getElementById('beacon').innerHTML = (microformatData.apBeacon.isValid) ? 'Yes' : 'No';
+
+					if (microformatData.apBeacon) {
+						document.getElementById('beacon').innerHTML = (microformatData.apBeacon.isValid) ? 'Yes' : 'Invalid';
+						document.getElementById('beaconData').style.display = 'block';
+
+						document.getElementById('apCreatorId').innerHTML = (microformatData.apBeacon.creatorId) ? microformatData.apBeacon.creatorId : '';
+						document.getElementById('apReleaseWebSite').innerHTML = (microformatData.apBeacon.rws) ? microformatData.apBeacon.rws : '';
+						document.getElementById('apCreatorArticleId').innerHTML = (microformatData.apBeacon.cai) ? microformatData.apBeacon.cai : '';
+						document.getElementById('apMyArticleId').innerHTML = (microformatData.apBeacon.mai) ? microformatData.apBeacon.mai : '';
+						document.getElementById('apCreatorVersionId').innerHTML = (microformatData.apBeacon.cvi) ? microformatData.apBeacon.cvi : '';
+						document.getElementById('apEnvironment').innerHTML = (microformatData.apBeacon.e) ? microformatData.apBeacon.e : '';
+						document.getElementById('apPermissionCategory').innerHTML = (microformatData.apBeacon.pc) ? microformatData.apBeacon.pc : '';
+					} else {
+						document.getElementById('beacon').innerHTML = 'No';
+					}
 				});
 			}
 		</script>
@@ -95,7 +125,18 @@
 			<div class="title">AP News Registry required fields:</div>
 			<div class="APNR box">
 				<div><span class="fieldName">License:</span> <span id="license" class="fieldValue"></span></div>
-				<div><span class="fieldName">Usage Tag (beacon):</span> <span id="beacon" class="fieldValue"></span></div>
+				<div><span class="fieldName">Usage Tag (beacon):</span> <span id="beacon" class="fieldValue"></span>
+					<div id="beaconData">
+						<div><span class="fieldName">Creator Id:</span> <span id="apCreatorId" class="fieldValue"></span></div>
+						<div><span class="fieldName">Release Web Site:</span> <span id="apReleaseWebSite" class="fieldValue"></span></div>
+						<div><span class="fieldName">Creator Article Id:</span> <span id="apCreatorArticleId" class="fieldValue"></span></div>
+						<div><span class="fieldName">My Article Id:</span> <span id="apMyArticleId" class="fieldValue"></span></div>
+						<div><span class="fieldName">Creator Version Id:</span> <span id="apCreatorVersionId" class="fieldValue"></span></div>
+						<div><span class="fieldName">Environment:</span> <span id="apEnvironment" class="fieldValue"></span></div>
+						<div><span class="fieldName">Permission Category:</span> <span id="apPermissionCategory" class="fieldValue"></span></div>
+						<div><span class="fieldName">Article Type:</span> <span id="apArticleType" class="fieldValue"></span></div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
