@@ -59,7 +59,7 @@
 					document.getElementById('published').innerHTML = (microformatData.hNews.published) ? new Date(microformatData.hNews.published) : '';
 
 					document.getElementById('license').innerHTML = (microformatData.hNews.license) ? microformatData.hNews.license.link : '';
-					document.getElementById('beacon').innerHTML = (microformatData.beacon.link) ? microformatData.beacon.link : '';
+					document.getElementById('beacon').innerHTML = (microformatData.apBeacon.isValid) ? 'Yes' : 'No';
 				});
 			}
 		</script>
