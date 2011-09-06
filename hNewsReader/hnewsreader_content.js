@@ -66,8 +66,8 @@ var hNews = function (hNewsElem) {
 		if (latitudes.length > 0 && longitudes.length > 0) {
 			// Note we have alternate handlings here
 			this.geo = {
-				latitude: Number((latitudes[0].getAttribute('title')) ? latitudes[0].getAttribute('title') : latitudes[0].innerText),
-				longitude: Number((longitudes[0].getAttribute('title')) ? longitudes[0].getAttribute('title') : longitudes[0].innerText)
+				latitude: Number(latitudes[0].getAttribute('title') || latitudes[0].innerText),
+				longitude: Number(longitudes[0].getAttribute('title') || longitudes[0].innerText)
 			}
 		}
 	}
