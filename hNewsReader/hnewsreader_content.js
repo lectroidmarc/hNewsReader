@@ -84,49 +84,49 @@ var hNews = function (hNewsElem) {
 
 var apBeacon = function (url) {
 	// CreatorId
-	var creatorIdMatch = url.match(/^.*?\/image.svc\/(.*?)\//);
+	var creatorIdMatch = url.match(/^.*?\/image.svc\/(.*?)(?:\/|$)/);
 	if (creatorIdMatch.length > 0) {
 		this.creatorId = creatorIdMatch[1];
 	}
 
 	// ReleaseWebSite
-	var rwsMatch = url.match(/\/RWS\/(.*?)\//);
+	var rwsMatch = url.match(/\/RWS\/(.*?)(?:\/|$)/);
 	if (rwsMatch && rwsMatch.length > 0) {
 		this.rws = rwsMatch[1];
 	}
 
 	// CreatorArticleId
-	var caiMatch = url.match(/\/CAI\/(.*?)\//);
+	var caiMatch = url.match(/\/CAI\/(.*?)(?:\/|$)/);
 	if (caiMatch && caiMatch.length > 0) {
 		this.cai = caiMatch[1];
 	}
 
 	// MyArticleId
-	var maiMatch = url.match(/\/MAI\/(.*?)\//);
+	var maiMatch = url.match(/\/MAI\/(.*?)(?:\/|$)/);
 	if (maiMatch && maiMatch.length > 0) {
 		this.mai = maiMatch[1];
 	}
 
 	// CreatorVersionId
-	var cviMatch = url.match(/\/CVI\/(.*?)\//);
+	var cviMatch = url.match(/\/CVI\/(.*?)(?:\/|$)/);
 	if (cviMatch && cviMatch.length > 0) {
 		this.cvi = cviMatch[1];
 	}
 
 	// Environment
-	var eMatch = url.match(/\/E\/(.*?)\//);
+	var eMatch = url.match(/\/E\/(.*?)(?:\/|$)/);
 	if (eMatch && eMatch.length > 0) {
 		this.e = eMatch[1];
 	}
 
 	// PermissionCategory
-	var pcMatch = url.match(/\/PC\/(.*?)\//);
+	var pcMatch = url.match(/\/PC\/(.*?)(?:\/|$)/);
 	if (pcMatch && pcMatch.length > 0) {
 		this.pc = pcMatch[1];
 	}
 
 	// ArticleType
-	var atMatch = url.match(/\/AT\/(.*?)\//);
+	var atMatch = url.match(/\/AT\/(.*?)(?:\/|$)/);
 	if (atMatch && atMatch.length > 0) {
 		this.at = atMatch[1];
 	}
