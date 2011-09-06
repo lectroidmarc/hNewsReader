@@ -64,7 +64,7 @@
 					document.getElementById('title').innerHTML = microformatData.hNews.title || '';
 					document.getElementById('author').innerHTML = microformatData.hNews.author || '';
 					document.getElementById('source').innerHTML = microformatData.hNews.source || '';
-					document.getElementById('updated').innerHTML = microformatData.hNews.updated || '';
+					document.getElementById('updated').innerHTML = (microformatData.hNews.updated) ? new Date(microformatData.hNews.updated) : '';
 
 					document.getElementById('dateline').innerHTML = microformatData.hNews.dateline || '';
 					document.getElementById('geo').innerHTML = (microformatData.hNews.geo) ? microformatData.hNews.geo.latitude + ", " + microformatData.hNews.geo.longitude : '';
