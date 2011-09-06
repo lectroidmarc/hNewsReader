@@ -61,12 +61,12 @@
 				chrome.tabs.getSelected(null, function(tab) {
 					var microformatData = chrome.extension.getBackgroundPage().hNewsData[tab.id];
 
-					document.getElementById('title').innerHTML = (microformatData.hNews.title) ? microformatData.hNews.title : '';
-					document.getElementById('author').innerHTML = (microformatData.hNews.author) ? microformatData.hNews.author : '';
-					document.getElementById('source').innerHTML = (microformatData.hNews.source) ? microformatData.hNews.source : '';
-					document.getElementById('updated').innerHTML = (microformatData.hNews.updated) ? new Date(microformatData.hNews.updated) : '';
+					document.getElementById('title').innerHTML = microformatData.hNews.title || '';
+					document.getElementById('author').innerHTML = microformatData.hNews.author || '';
+					document.getElementById('source').innerHTML = microformatData.hNews.source || '';
+					document.getElementById('updated').innerHTML = microformatData.hNews.updated || '';
 
-					document.getElementById('dateline').innerHTML = (microformatData.hNews.dateline) ? microformatData.hNews.dateline : '';
+					document.getElementById('dateline').innerHTML = microformatData.hNews.dateline || '';
 					document.getElementById('geo').innerHTML = (microformatData.hNews.geo) ? microformatData.hNews.geo.latitude + ", " + microformatData.hNews.geo.longitude : '';
 					document.getElementById('principles').innerHTML = (microformatData.hNews.principle) ? microformatData.hNews.principle.link : '';
 					document.getElementById('published').innerHTML = (microformatData.hNews.published) ? new Date(microformatData.hNews.published) : '';
@@ -77,13 +77,13 @@
 						document.getElementById('beacon').innerHTML = (microformatData.apBeacon.isValid) ? 'Yes' : 'Invalid';
 						document.getElementById('beaconData').style.display = 'block';
 
-						document.getElementById('apCreatorId').innerHTML = (microformatData.apBeacon.creatorId) ? microformatData.apBeacon.creatorId : '';
-						document.getElementById('apReleaseWebSite').innerHTML = (microformatData.apBeacon.rws) ? microformatData.apBeacon.rws : '';
-						document.getElementById('apCreatorArticleId').innerHTML = (microformatData.apBeacon.cai) ? microformatData.apBeacon.cai : '';
-						document.getElementById('apMyArticleId').innerHTML = (microformatData.apBeacon.mai) ? microformatData.apBeacon.mai : '';
-						document.getElementById('apCreatorVersionId').innerHTML = (microformatData.apBeacon.cvi) ? microformatData.apBeacon.cvi : '';
-						document.getElementById('apEnvironment').innerHTML = (microformatData.apBeacon.e) ? microformatData.apBeacon.e : '';
-						document.getElementById('apPermissionCategory').innerHTML = (microformatData.apBeacon.pc) ? microformatData.apBeacon.pc : '';
+						document.getElementById('apCreatorId').innerHTML = microformatData.apBeacon.creatorId || '';
+						document.getElementById('apReleaseWebSite').innerHTML = microformatData.apBeacon.rws || '';
+						document.getElementById('apCreatorArticleId').innerHTML = microformatData.apBeacon.cai  || '';
+						document.getElementById('apMyArticleId').innerHTML = microformatData.apBeacon.mai || '';
+						document.getElementById('apCreatorVersionId').innerHTML = microformatData.apBeacon.cvi || '';
+						document.getElementById('apEnvironment').innerHTML = microformatData.apBeacon.e || '';
+						document.getElementById('apPermissionCategory').innerHTML = microformatData.apBeacon.pc || '';
 					} else {
 						document.getElementById('beacon').innerHTML = 'No';
 					}
