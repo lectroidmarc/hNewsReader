@@ -77,6 +77,7 @@
 
 					document.getElementById('dateline').innerHTML = microformatData.hNews.dateline || '';
 					document.getElementById('geo').innerHTML = (microformatData.hNews.geo) ? microformatData.hNews.geo.latitude + ", " + microformatData.hNews.geo.longitude : '';
+					document.getElementById('license').innerHTML = (microformatData.hNews.license) ? microformatData.hNews.license.link : '';
 					document.getElementById('principles').innerHTML = (microformatData.hNews.principle) ? microformatData.hNews.principle.link : '';
 					document.getElementById('published').innerHTML = (microformatData.hNews.published) ? new Date(microformatData.hNews.published) : '';
 
@@ -88,8 +89,7 @@
 						document.getElementById('tags').appendChild(tagSpan);
 					}
 
-					document.getElementById('license').innerHTML = (microformatData.hNews.license) ? microformatData.hNews.license.link : '';
-
+					document.getElementById('licenseAP').innerHTML = (microformatData.hNews.license) ? 'Yes (see above)' : 'No';
 					if (microformatData.apBeacon) {
 						document.getElementById('beacon').innerHTML = (microformatData.apBeacon.isValid) ? 'Yes' : 'Invalid';
 						document.getElementById('beaconData').style.display = 'block';
@@ -131,6 +131,7 @@
 			<div class="optional box">
 				<div><span class="fieldName">Dateline:</span> <span id="dateline" class="fieldValue"></span></div>
 				<div><span class="fieldName">Geo:</span> <span id="geo" class="fieldValue"></span></div>
+				<div><span class="fieldName">License:</span> <span id="license" class="fieldValue"></span></div>
 				<div><span class="fieldName">Principles:</span> <span id="principles" class="fieldValue"></span></div>
 				<div><span class="fieldName">Published:</span> <span id="published" class="fieldValue"></span></div>
 				<div><span class="fieldName">Tags:</span> <span id="tags" class="fieldValue"></span></div>
@@ -138,9 +139,9 @@
 		</div>
 
 		<div class="section">
-			<div class="title">AP News Registry required fields:</div>
+			<div class="title">AP News Registry:</div>
 			<div class="APNR box">
-				<div><span class="fieldName">License:</span> <span id="license" class="fieldValue"></span></div>
+				<div><span class="fieldName">License:</span> <span id="licenseAP" class="fieldValue"></span></div>
 				<div><span class="fieldName">Usage Tag (beacon):</span> <span id="beacon" class="fieldValue"></span>
 					<div id="beaconData">
 						<div><span class="fieldName">Creator Id:</span> <span id="apCreatorId" class="fieldValue"></span></div>
