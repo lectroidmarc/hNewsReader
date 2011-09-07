@@ -39,6 +39,14 @@
 				font-weight: bold;
 			}
 
+			.tag {
+				background: #eee;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+				margin-right: 4px;
+				padding: 0 4px;
+			}
+
 			#beaconData {
 				background: white;
 				border: 1px solid #eee;
@@ -70,6 +78,14 @@
 					document.getElementById('geo').innerHTML = (microformatData.hNews.geo) ? microformatData.hNews.geo.latitude + ", " + microformatData.hNews.geo.longitude : '';
 					document.getElementById('principles').innerHTML = (microformatData.hNews.principle) ? microformatData.hNews.principle.link : '';
 					document.getElementById('published').innerHTML = (microformatData.hNews.published) ? new Date(microformatData.hNews.published) : '';
+
+					for (var x = 0; x < microformatData.hNews.tags.length; x++) {
+						var tagSpan = document.createElement('span');
+						tagSpan.setAttribute('class', 'tag');
+						tagSpan.innerHTML = microformatData.hNews.tags[x];
+
+						document.getElementById('tags').appendChild(tagSpan);
+					}
 
 					document.getElementById('license').innerHTML = (microformatData.hNews.license) ? microformatData.hNews.license.link : '';
 
@@ -116,6 +132,7 @@
 				<div><span class="fieldName">Geo:</span> <span id="geo" class="fieldValue"></span></div>
 				<div><span class="fieldName">Principles:</span> <span id="principles" class="fieldValue"></span></div>
 				<div><span class="fieldName">Published:</span> <span id="published" class="fieldValue"></span></div>
+				<div><span class="fieldName">Tags:</span> <span id="tags" class="fieldValue"></span></div>
 			</div>
 		</div>
 

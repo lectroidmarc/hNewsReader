@@ -78,6 +78,13 @@ var hNews = function (hNewsElem) {
 		this.published = Date.parse(publishedDates[0].getAttribute('title'));
 	}
 
+	// tags, from hAtom, optional
+	this.tags = []
+	var tagSnapshots = document.evaluate("//a[@rel='tag']", hNewsElem, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+	for (var x = 0; x < tagSnapshots.snapshotLength; x++) {
+		this.tags.push(tagSnapshots.snapshotItem(x).innerText.trim());
+	}
+
 	// finally, set something telling folks we're valid hNews or not.
 	this.isValid = (this.title && this.author && this.updated && this.source) ? true : false;
 };
