@@ -1,7 +1,14 @@
-/**
-  Container for an hNews object.  Based on the hNews 0.1 spec at http://microformats.org/wiki/hnews
-  @param hNewsElem a DOM element that is a hNews container.
+/*
+ * Copyright (c) 2011 Marc Matteo All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
 */
+
+/**
+ * Container for an hNews object.  Based on the hNews 0.1 spec at http://microformats.org/wiki/hnews
+ * @constructor
+ * @param {DOMobject} hNewsElem a DOM element that is a hNews container.
+ */
 var hNews = function (hNewsElem) {
 	// entry-title, from hAtom, required
 	var entryTitles = hNewsElem.getElementsByClassName('entry-title');
@@ -89,6 +96,11 @@ var hNews = function (hNewsElem) {
 	this.isValid = (this.title && this.author && this.updated && this.source) ? true : false;
 };
 
+/**
+ * Containter for an AP "beacon".
+ * @constructor
+ * @param {String} url A URL to parse for the AP Beacon options.
+ */
 var apBeacon = function (url) {
 	// CreatorId
 	var creatorIdMatch = url.match(/^.*?\/image.svc\/(.*?)(?:\/|$)/);
