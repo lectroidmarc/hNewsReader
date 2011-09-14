@@ -16,12 +16,12 @@
 				if (!request.hNews.isValid) {
 					chrome.pageAction.setIcon({
 						tabId: sender.tab.id,
-						path: "news_icon-error.png"
+						path: "images/news_icon-error-19.png"
 					});
 				} else if (request.hNews.isValid && request.hNews.license && request.apBeacon && request.apBeacon.isValid) {
 					chrome.pageAction.setIcon({
 						tabId: sender.tab.id,
-						path: "news_icon-ap.png"
+						path: "images/news_icon-ap-19.png"
 					});
 				}
 				chrome.pageAction.show(sender.tab.id);

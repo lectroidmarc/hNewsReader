@@ -5,11 +5,11 @@
 	"permissions": [ "tabs", "http://*/*", "https://*/*" ],
 	"background_page": "background.html",
 	"page_action": {
-		"default_icon": "news_icon.png",
+		"default_icon": "images/news_icon-19.png",
 		"popup": "popup.html"
 	},
 	"icons": {
-		"128": "news_icon.png"
+		"128": "images/news_icon-128.png"
 	},
 	"content_scripts": [ {
 		"js": [
