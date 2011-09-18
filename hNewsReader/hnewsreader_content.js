@@ -41,7 +41,7 @@ var hNews = function (hNewsElem) {
 	}
 
 	// item-license, from hNews, recommended
-	var licenseSnapshots = document.evaluate("//a[@rel='item-license']", hNewsElem, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+	var licenseSnapshots = document.evaluate(".//a[@rel='item-license']", hNewsElem, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
 	if (licenseSnapshots.snapshotLength > 0) {
 		this.license = {
 			text: licenseSnapshots.snapshotItem(0).innerText.trim(),
@@ -50,7 +50,7 @@ var hNews = function (hNewsElem) {
 	}
 
 	// principles, from hNews, recommended
-	var principleSnapshots = document.evaluate("//a[@rel='principles']", hNewsElem, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+	var principleSnapshots = document.evaluate(".//a[@rel='principles']", hNewsElem, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
 	if (principleSnapshots.snapshotLength > 0) {
 		this.principle = {
 			text: principleSnapshots.snapshotItem(0).innerText.trim(),
@@ -87,7 +87,7 @@ var hNews = function (hNewsElem) {
 
 	// tags, from hAtom, optional
 	this.tags = []
-	var tagSnapshots = document.evaluate("//a[@rel='tag']", hNewsElem, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+	var tagSnapshots = document.evaluate(".//a[@rel='tag']", hNewsElem, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
 	for (var x = 0; x < tagSnapshots.snapshotLength; x++) {
 		this.tags.push(tagSnapshots.snapshotItem(x).innerText.trim());
 	}
@@ -165,7 +165,7 @@ function CheckForHNews () {
 
 		// AP's News Registry beacon
 		var beacon = null;
-		var beaconSnapshots = document.evaluate("//img[contains(@src, 'http://analytics.apnewsregistry.com/analytics/v2/image.svc')]", document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+		var beaconSnapshots = document.evaluate(".//img[contains(@src, 'http://analytics.apnewsregistry.com/analytics/v2/image.svc')]", hNewsContainer[0], null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
 		if (beaconSnapshots.snapshotLength > 0) {
 			beacon = new apBeacon(beaconSnapshots.snapshotItem(0).getAttribute('src'));
 			console.log(beacon);
