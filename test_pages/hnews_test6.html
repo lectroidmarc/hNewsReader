@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Test 6 - AP News Registry</title>
+    <title>Test 5 - Broken AP News Registry</title>
     <meta charset="utf-8" />
 
-    <style>
-      body {
-        font-family: sans-serif;
-      }
-    </style>
+    <link rel="stylesheet" href="test_styles.css" />
   </head>
 
   <body>
+    <div class="demo">
+      <img src="images/news_icon.png"/>
+      <div class="title">Improper AP News Registry tagging</div>
+      <div>This is an example of a proper hNews story with the <i>improper</i> addition of the AP News Registry beacon.  The AP News Registry beacon is outside of the <code>hNews</code> container.</div>
+    </div>
+
     <div class="hnews hentry item">
       <h4>
         <a class="url entry-title" href="http://example.org/article/us-latam-obama-democracy.html" rel="bookmark">
@@ -62,8 +64,8 @@
           All rights reserved. This material may not be published, broadcast, rewritten or redistributed.
         </small>
       </div>
-
-      <img src="http://analytics.apnewsregistry.com/analytics/v2/image.svc/LocalPaper/CAI/example.com-12345sdf323/CVI/example.com-12335asd124/RWS/news.example.com/MAI/1234/E/Dev/PC/Basic/AT/A" alt="" width="1" height="1"/>
     </div>
+
+    <img src="http://analytics.apnewsregistry.com/analytics/v2/image.svc/LocalPaper/CAI/example.com-12345sdf323/CVI/example.com-12335asd124/RWS/news.example.com/MAI/1234/E/Dev/PC/Basic/AT/A" alt="" width="1" height="1"/>
   </body>
 </html>

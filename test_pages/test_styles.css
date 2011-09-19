@@ -1,0 +1,23 @@
+body {
+	font-family: sans-serif;
+}
+
+.demo {
+	background: #ffff99;
+	border: 1px solid #eee;
+	font-size: smaller;
+	min-height: 48px;
+	padding: 5px;
+	width: 30%;
+}
+
+.demo .title {
+	font-weight: bold;
+}
+
+.demo img {
+	float: left;
+	height: 48px;
+	margin-right: 5px;
+	width: 48px;
+}
