@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2011 Marc Matteo All rights reserved.
+ * Copyright (c) 2012 Marc Matteo All rights reserved.
  * Use of this source code is governed by a BSD-style license that can be
  * found in the LICENSE file.
-*/
+ */
 
 /**
  * Container for an hNews object.  Based on the hNews 0.1 spec at http://microformats.org/wiki/hnews
@@ -172,7 +172,7 @@ function CheckForHNews () {
 		}
 
 		// Send the data along...
-		chrome.extension.sendRequest({hNews: hnews, apBeacon: beacon});
+		chrome.extension.sendMessage({hNews: hnews, apBeacon: beacon});
 	}
 }
 
