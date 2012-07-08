@@ -5,7 +5,7 @@
  */
 
 // Track hnews data per tab
-hNewsData = {};
+var hNewsData = {};
 
 // Listen for messgaes telling us to show the news icon
 chrome.extension.onMessage.addListener(function (request, sender) {
@@ -18,7 +18,7 @@ chrome.extension.onMessage.addListener(function (request, sender) {
   } else if (request.hNews.isValid && request.hNews.license && request.apBeacon && request.apBeacon.isValid) {
     chrome.pageAction.setIcon({
       tabId: sender.tab.id,
-      path: "images/news_icon-ap-19.png"
+      path: "images/news_icon-newsright-19.png"
     });
   }
   chrome.pageAction.show(sender.tab.id);

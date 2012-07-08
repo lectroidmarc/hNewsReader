@@ -1,6 +1,6 @@
 {
 	"name": "hNews Reader",
-	"version": "0.9",
+	"version": "0.9.1",
 	"manifest_version": 2,
 	"description": "Reads and validates the hNews microformat.",
 	"icons": {
