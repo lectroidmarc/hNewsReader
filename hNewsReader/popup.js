@@ -6,7 +6,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   chrome.tabs.getSelected(null, function(tab) {
-    console.log(chrome.extension.getBackgroundPage());
     var microformatData = chrome.extension.getBackgroundPage().hNewsData[tab.id];
 
     document.getElementById('title').innerHTML = microformatData.hNews.title || '';
